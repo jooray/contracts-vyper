@@ -49,20 +49,23 @@ pytest -v tests/
 
 For basic local deployment, we are using [Ganache](https://truffleframework.com/ganache) and [truffle](https://truffleframework.com/).
 
-1) Compile contracts
+1) Install dependencies, compile contracts
 
 ```bash
+npm install
 truffle compile
 ```
 
 2) Deploy based on configuration in truffle-config.js, default is local
-ganache instance:
+ganache instance (which should be running for this to work):
 
 ```bash
 truffle migrate
 ```
 
 This will create a TestingToken (an ERC-20 compatible token), create a Uniswap factory and exchange for the token and add liquidity.
+
+It will write three addresses: factory, token and exchange. You will need these for front-end deployment.
 
 3) Setup local front-end
 
