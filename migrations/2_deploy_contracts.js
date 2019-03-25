@@ -19,11 +19,11 @@ module.exports = async(deployer) => {
   // approve pulling of the token from the exchange
   accounts = await web3.eth.getAccounts()
   tokenBalance = await testingToken.balanceOf(accounts[0])
-  testingToken.approve(exchangeAddress, tokenBalance)
+  await testingToken.approve(exchangeAddress, tokenBalance)
 
   // add liquidity to the exchange
   timestamp = (await web3.eth.getBlock(web3.eth.blockNumber)).timestamp
-  exchange.addLiquidity(0, 100000000000, timestamp+100000000, {value: 1000000000000000000})
+  await exchange.addLiquidity(0, 100000000000, timestamp+100000000, {value: 1000000000000000000})
 
   console.log('factory: ' + factory.address);
   console.log('token: ' + testingToken.address);
