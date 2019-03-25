@@ -35,6 +35,7 @@ source env/bin/activate
 
 ```bash
 pip install -r requirements.txt
+npm install
 ```
 
 4) (Optional) Switch Vyper compiler to version used in Uniswap [verification](https://github.com/runtimeverification/verified-smart-contracts/tree/uniswap/uniswap)  
