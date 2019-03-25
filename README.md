@@ -6,6 +6,12 @@
 * Slack: [uni-swap.slack.com/](https://join.slack.com/t/uni-swap/shared_invite/enQtNDYwMjg1ODc5ODA4LWEyYmU0OGU1ZGQ3NjE4YzhmNzcxMDAyM2ExNzNkZjZjZjcxYTkwNzU0MGE3M2JkNzMxOTA2MzE2ZWM0YWQwNjU)
 * Whitepaper: [Link](https://hackmd.io/C-DvwDSfSxuh-Gd4WKE_ig)
 
+# About this fork
+
+This fork is intended for people who want to deploy and play with
+Uniswap locally on their own instance. It provides all the necessary
+scripts to run local instance of Uniswap.
+
 ## Installation:
 
 #### Requires [Python 3](https://www.python.org/download/releases/3.0/)
@@ -13,7 +19,7 @@
 1) Clone Uniswap
 
 ```bash
-git clone https://github.com/Uniswap/contracts-vyper
+git clone https://github.com/jooray/contracts-vyper
 cd contracts-vyper
 ```
 
