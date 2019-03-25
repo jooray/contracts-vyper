@@ -1,6 +1,7 @@
 var UniswapFactory = artifacts.require("uniswap_factory");
 var UniswapExchange = artifacts.require("uniswap_exchange");
 var TestingToken = artifacts.require("TestingToken");
+const fs = require('fs');
 
 module.exports = async(deployer) => {
   let deployedFactory = await deployer.deploy(UniswapFactory);
@@ -25,8 +26,13 @@ module.exports = async(deployer) => {
   timestamp = (await web3.eth.getBlock(web3.eth.blockNumber)).timestamp
   await exchange.addLiquidity(0, 100000000000, timestamp+100000000, {value: 1000000000000000000})
 
+  let writeStream = fs.createWriteStream('addresses.sh');
+  writeStream.write('FACTORY_ADDRESS="' + factory.address + '"\n');
+  writeStream.write('TOKEN_ADDRESS="' + testingToken.address + '"\n');
+  writeStream.write('EXCHANGE_ADDRESS="' + exchangeAddress + '"\n');
+  writeStream.end();
+
   console.log('factory: ' + factory.address);
   console.log('token: ' + testingToken.address);
   console.log('exchange: ' + exchangeAddress);
-  console.log('Symbol: ' + await testingToken.symbol());
 };

@@ -77,22 +77,27 @@ It will write three addresses: factory, token and exchange. You will need these 
 3) Setup local front-end
 
 ```bash
+cd ..
 git clone 'https://github.com/jooray/uniswap-frontend'
-cd uniswap-frontend/
+cd contracts-vyper
+./update-addresses.sh
 ```
 
-In src/ducks/addresses.js search for this code:
-
-```javascript
-const GANACHE = {
-  factoryAddress: '0x84160a67A7A18076D0bC683aC369e519eC08AB1C',
-```
-
-Replace token, exchange and factory address with addresses from above.
+The last command will update addresses for the deployed contracts in
+src/ducks/addresses.js. You need to do this everytime you deploy new
+version of the contracts through truffle migrate --reset
 
 Then run the front-end:
 
 ```
+cd ../uniswap-frontend
 yarn
 yarn start:ganache
 ```
+
+# Debugging
+
+If things stop working for some reason, you get NaN and weird front-end
+errors, reset your metamask account in the settings (this will not
+forget your private keys, but tokens and transaction history will be
+reset).
