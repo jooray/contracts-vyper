@@ -21,8 +21,8 @@ name: public(bytes32)                             # Uniswap V1
 symbol: public(bytes32)                           # UNI-V1
 decimals: public(uint256)                         # 18
 totalSupply: public(uint256)                      # total number of UNI in existence
-balances: uint256[address]                        # UNI balance of an address
-allowances: (uint256[address])[address]           # UNI allowance of one address on another
+balances: map(address, uint256)                   # UNI balance of an address
+allowances: map(address, map(address, uint256))   # UNI allowance of one address on another
 token: address(ERC20)                             # address of the ERC20 token traded on this contract
 factory: Factory                                  # interface for the factory that created this contract
 
